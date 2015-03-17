@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<link rel="stylesheet" type="text/css" href="./main_design.css"/>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="foodly_js.js"></script>
+
+<title>Foodly - customize order enjoy</title>
+<script>
+function orderFoodClicked()
+{
+if (localStorage.getItem("restaurantURL")!==null) window.location.href = localStorage.restaurantURL;
+else window.location.href = './orderFood.html';
+}
+
+$(function() {
+if (localStorage.getItem("foodly_itemsCart") === null){document.getElementById("cartQuantity").innerHTML="0";}
+else {document.getElementById("cartQuantity").innerHTML = localStorage.foodly_itemsCart;}
+if (window.localStorage.length==0)
+	{
+	localStorage.foodly_itemQuantityNo01="0"; localStorage.foodly_itemPriceNo01="0";	
+	localStorage.foodly_itemQuantityNo02="0"; localStorage.foodly_itemPriceNo02="0";	
+	localStorage.foodly_itemQuantityNo03="0"; localStorage.foodly_itemPriceNo03="0";	
+	localStorage.foodly_itemQuantityNo04="0"; localStorage.foodly_itemPriceNo04="0";	
+	localStorage.foodly_itemQuantityNo05="0"; localStorage.foodly_itemPriceNo05="0";	
+	}
+});
+</script>
+</head>
+
+<body>
+<table id="main_layout">
+<tr><td colspan="100" id="main_banner_bng"><a href="./index.html"><img id="main_banner" src="./Resources/foodly_banner.png"></img></a></td></tr>
+<tr class="main_menu">
+<td><a href="./index.html">Home</a></td>
+<td><a onclick="orderFoodClicked()">Order Food</a></td>
+<td><a href="./aboutUs.html">About us</a></td>
+<td><a href="./ContactUs.html">Contact us</a></td>
+<td><a href="./myCart.html">My Cart (<span id="cartQuantity">0</span>)</a></td>
+</tr>
+<tr>
+<td colspan="100" class="main_content"> <!-- sadrzaj stranice -->
+<br/><br/>
+
+<fieldset class="fewWords">
+<legend><span class="specialFont_normal2">Few words about Foodly</span></legend>
+"<span class="specialFont_normal">Foodly</span>started as an idea back in the summer of 2014. I've wanted to create an editor for pizza that
+customers could use to make custom pizza with custom toppings on right and left side of the pizza seperately. Throughout late 2014 and beginning of
+2015, during the Software Startup Academy,<span class="specialFont_normal">Foodly</span>has become a lot more than I've thought of in the beginning
+enveloping most of my knowledge of coding. I would like to continue the development of<span class="specialFont_normal">Foodly</span>and improve its 
+services to improve it and make better software." <span class="specialFont_normal">- Adrian Bece</span>
+</fieldset><br/>
+
+<fieldset class="fewWords">
+<legend><span class="specialFont_normal2">How it works</span></legend>
+<img src="./Resources/howItWorks.png"/>
+<img src="./Resources/foodly_animated.gif"/>
+</fieldset>
+<br/>
+
+<fieldset class="fewWords">
+<legend><span class="specialFont_normal2">Interested in our services?</span></legend>
+Here you can see plans and services that we're offering to your restaurant. Click on the plan to see full details
+and contents of each plan.
+If you have any questions about plans and services, feel free to contact us via our contact form.
+<br/><br/>
+<div class="centerThis">
+<div class="three_columns" id="three_columns_1"><div class="specialFont_normal2">3 Months Plan</div><hr/>
+Sign up for a 3 months of Foodly membership. Click here for more details.<hr/>
+<span class="specialFont_normal2">Price: 000.00 kn/mo</span>
+<div class="purchase_button"><input type="button" value="Purchase this plan"/></div></div>
+<div class="three_columns" id="three_columns_2"><div class="specialFont_normal2">6 Months Plan</div><hr/>
+Sign up for a 6 months of  Foodly membership. Click here for more details.<hr/>
+<span class="specialFont_normal2">Price: 000.00 kn/mo</span>
+<div class="purchase_button"><input type="button" value="Purchase this plan"/></div></div>
+<div class="three_columns" id="three_columns_3"><div class="specialFont_normal2">1 Year Plan</div><hr/>
+Sign up for a 12 months of Foodly membership. Click here for more details.<hr/>
+<span class="specialFont_normal2">Price: 000.00 kn/mo</span>
+<div class="purchase_button"><input type="button" value="Purchase this plan"/></div></div>
+</div>
+<div class="offer_details">
+<fieldset id="offerDetailsFieldset">
+<legend><span class="specialFont_normal2">Offer details</span></legend>
+<div id="offerDescription">
+<span class="plan_description_group" id="plan_description_1" style="display:none;">
+<img class="features_cards" src="./features/b01.png"/>
+<img class="features_cards" src="./features/b02.png"/>
+<img class="features_cards" src="./features/b03.png"/>
+<img class="features_cards" src="./features/b04.png"/>
+<img class="features_cards" src="./features/b05.png"/>
+</span>
+<span class="plan_description_group" id="plan_description_2" style="display:none;">
+<img class="features_cards" src="./features/b01.png"/>
+<img class="features_cards" src="./features/b02.png"/>
+<img class="features_cards" src="./features/b03.png"/>
+<img class="features_cards" src="./features/b04.png"/>
+<img class="features_cards" src="./features/s01.png"/>
+<img class="features_cards" src="./features/s02.png"/>
+<img class="features_cards" src="./features/s03.png"/>
+</span>
+<span class="plan_description_group" id="plan_description_3" style="display:none;">
+<img class="features_cards" src="./features/b01.png"/>
+<img class="features_cards" src="./features/b02.png"/>
+<img class="features_cards" src="./features/b03.png"/>
+<img class="features_cards" src="./features/b04.png"/>
+<img class="features_cards" src="./features/s01.png"/>
+<img class="features_cards" src="./features/s02.png"/>
+<img class="features_cards" src="./features/g01.png"/>
+<img class="features_cards" src="./features/g02.png"/>
+<img class="features_cards" src="./features/g03.png"/>
+</span>
+<div class="plan_description_group"><br/><center>Select one of the options to see the details about the plan.</center><br/></div>
+</div>
+</fieldset>
+</div>
+<br/>
+</fieldset>
+<br/>
+
+<br/><br/>
+
+</td></tr>
+<tr><td class="social_media" colspan="100">
+&nbsp;&nbsp;&nbsp;
+<br/>
+</td></tr>
+
+
+</table></body></html>

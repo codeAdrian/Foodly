@@ -1,0 +1,287 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="./main_design.css"/>
+<title>Foodly - mojRestoran</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="../foodly_js.js"></script>
+<script src="./scrollScript_js.js"></script>
+<script>
+function orderFoodClicked()
+{
+if (localStorage.getItem("restaurantURL")!==null) window.location.href = localStorage.restaurantURL;
+else window.location.href = './orderFood.html';
+}
+$(document).ready(function() {
+localStorage.foodlyRestaurant="mojRestoran Osijek";
+localStorage.restaurantURL = window.location.href; 
+$("#sizeSelect").change(function() {
+localStorage.foodly_itemSize=$("#sizeSelect option:selected").text();
+});
+
+localStorage.restaurantURL = $(location).attr('href');
+if (localStorage.getItem("foodly_itemsCart") === null){localStorage.foodly_itemsCart= "0";}
+document.getElementById("cartQuantity").innerHTML= localStorage.foodly_itemsCart;
+// ----- INITIALIZE START VALUES
+if (window.localStorage.length==0) {
+	localStorage.foodly_itemQuantityNo01="0"; localStorage.foodly_itemPriceNo01="0";	
+	localStorage.foodly_itemQuantityNo02="0"; localStorage.foodly_itemPriceNo02="0";	
+	localStorage.foodly_itemQuantityNo03="0"; localStorage.foodly_itemPriceNo03="0";	
+	localStorage.foodly_itemQuantityNo04="0"; localStorage.foodly_itemPriceNo04="0";	
+	localStorage.foodly_itemQuantityNo05="0"; localStorage.foodly_itemPriceNo05="0";
+	localStorage.foodly_itemQuantityNo06="0"; localStorage.foodly_itemPriceNo06="0";	
+	localStorage.foodly_itemQuantityNo07="0"; localStorage.foodly_itemPriceNo07="0";	
+	localStorage.foodly_itemQuantityNo08="0"; localStorage.foodly_itemPriceNo08="0";	
+	localStorage.foodly_itemQuantityNo09="0"; localStorage.foodly_itemPriceNo09="0";	
+	localStorage.foodly_itemQuantityNo10="0"; localStorage.foodly_itemPriceNo10="0";
+	localStorage.foodly_itemSize="Medium";}
+	
+else{
+localStorage.foodly_finalPrice = Number(localStorage.foodly_itemQuantityNo01*localStorage.foodly_itemPriceNo01+localStorage.foodly_itemQuantityNo02*localStorage.foodly_itemPriceNo02+localStorage.foodly_itemQuantityNo03*localStorage.foodly_itemPriceNo03+localStorage.foodly_itemQuantityNo04*localStorage.foodly_itemPriceNo04+localStorage.foodly_itemQuantityNo05*localStorage.foodly_itemPriceNo05+localStorage.foodly_itemQuantityNo06*localStorage.foodly_itemPriceNo06+localStorage.foodly_itemQuantityNo07*localStorage.foodly_itemPriceNo07+localStorage.foodly_itemQuantityNo08*localStorage.foodly_itemPriceNo08+localStorage.foodly_itemQuantityNo09*localStorage.foodly_itemPriceNo09+localStorage.foodly_itemQuantityNo10*localStorage.foodly_itemPriceNo10);
+document.getElementById("total_price").innerHTML= localStorage.foodly_finalPrice;	
+}});
+
+function toggleCartEvent()
+{
+if($(".itemAdded").css('display') == 'none'){
+	$(".description").hide("fast"); 
+	$(".itemMenu").hide("fast").delay(1000).show("fast");
+	$(".itemAdded").show("fast").delay(1000).hide("fast");
+	}
+}
+
+function clickBuy(item, itemCode, price, size) {
+	if(typeof(Storage) !== "undefined") {
+	if (localStorage.foodly_itemsCart) {localStorage.foodly_itemsCart=Number(localStorage.foodly_itemsCart)+1;}
+	else {localStorage.foodly_itemsCart=1;}
+	
+// ----- IS ITEM ALREADY IN CART?
+ 	if (localStorage.getItem("foodly_itemNo01")===item && localStorage.getItem("foodly_itemSizeNo01")===size) {localStorage.foodly_itemQuantityNo01++; toggleCartEvent();}
+ 	else if (localStorage.getItem("foodly_itemNo02") === item && localStorage.getItem("foodly_itemSizeNo02")===size) {localStorage.foodly_itemQuantityNo02++; toggleCartEvent();}
+	else if (localStorage.getItem("foodly_itemNo03") === item && localStorage.getItem("foodly_itemSizeNo03")===size) {localStorage.foodly_itemQuantityNo03++; toggleCartEvent();}
+	else if (localStorage.getItem("foodly_itemNo04") === item && localStorage.getItem("foodly_itemSizeNo04")===size) {localStorage.foodly_itemQuantityNo04++; toggleCartEvent();}
+	else if (localStorage.getItem("foodly_itemNo05") === item && localStorage.getItem("foodly_itemSizeNo05")===size) {localStorage.foodly_itemQuantityNo05++; toggleCartEvent();}
+	else if (localStorage.getItem("foodly_itemNo06") === item && localStorage.getItem("foodly_itemSizeNo06")===size) {localStorage.foodly_itemQuantityNo06++; toggleCartEvent();}
+	else if (localStorage.getItem("foodly_itemNo07") === item && localStorage.getItem("foodly_itemSizeNo07")===size) {localStorage.foodly_itemQuantityNo07++; toggleCartEvent();}
+	else if (localStorage.getItem("foodly_itemNo08") === item && localStorage.getItem("foodly_itemSizeNo08")===size) {localStorage.foodly_itemQuantityNo08++; toggleCartEvent();}
+	else if (localStorage.getItem("foodly_itemNo09") === item && localStorage.getItem("foodly_itemSizeNo09")===size) {localStorage.foodly_itemQuantityNo09++; toggleCartEvent();}
+	else if (localStorage.getItem("foodly_itemNo10") === item && localStorage.getItem("foodly_itemSizeNo10")===size) {localStorage.foodly_itemQuantityNo10++; toggleCartEvent();}
+
+
+// ----- NEW ITEM IN CART
+ 	else if (localStorage.getItem("foodly_itemNo01") === null) {localStorage.foodly_itemNo01=item; localStorage.foodly_itemCodeNo01=itemCode; localStorage.foodly_itemQuantityNo01=1; localStorage.foodly_itemPriceNo01=price; toggleCartEvent(); localStorage.foodly_itemSizeNo01=size;}
+ 	else if (localStorage.getItem("foodly_itemNo02") === null) {localStorage.foodly_itemNo02=item; localStorage.foodly_itemCodeNo02=itemCode; localStorage.foodly_itemQuantityNo02=1;localStorage.foodly_itemPriceNo02=price; toggleCartEvent(); localStorage.foodly_itemSizeNo02=size;}
+	else if (localStorage.getItem("foodly_itemNo03") === null) {localStorage.foodly_itemNo03=item; localStorage.foodly_itemCodeNo03=itemCode; localStorage.foodly_itemQuantityNo03=1;localStorage.foodly_itemPriceNo03=price; toggleCartEvent(); localStorage.foodly_itemSizeNo03=size;}
+	else if (localStorage.getItem("foodly_itemNo04") === null) {localStorage.foodly_itemNo04=item; localStorage.foodly_itemCodeNo04=itemCode; localStorage.foodly_itemQuantityNo04=1;localStorage.foodly_itemPriceNo04=price; toggleCartEvent(); localStorage.foodly_itemSizeNo04=size;}
+ 	else if (localStorage.getItem("foodly_itemNo05") === null) {localStorage.foodly_itemNo05=item; localStorage.foodly_itemCodeNo05=itemCode; localStorage.foodly_itemQuantityNo05=1;localStorage.foodly_itemPriceNo05=price; toggleCartEvent(); localStorage.foodly_itemSizeNo05=size;}
+ 	else if (localStorage.getItem("foodly_itemNo06") === null) {localStorage.foodly_itemNo06=item; localStorage.foodly_itemCodeNo06=itemCode; localStorage.foodly_itemQuantityNo06=1; localStorage.foodly_itemPriceNo06=price; toggleCartEvent(); localStorage.foodly_itemSizeNo06=size;}
+ 	else if (localStorage.getItem("foodly_itemNo07") === null) {localStorage.foodly_itemNo07=item; localStorage.foodly_itemCodeNo07=itemCode; localStorage.foodly_itemQuantityNo07=1;localStorage.foodly_itemPriceNo07=price; toggleCartEvent(); localStorage.foodly_itemSizeNo07=size;}
+	else if (localStorage.getItem("foodly_itemNo08") === null) {localStorage.foodly_itemNo08=item; localStorage.foodly_itemCodeNo08=itemCode; localStorage.foodly_itemQuantityNo08=1;localStorage.foodly_itemPriceNo08=price; toggleCartEvent(); localStorage.foodly_itemSizeNo08=size;}
+	else if (localStorage.getItem("foodly_itemNo09") === null) {localStorage.foodly_itemNo09=item; localStorage.foodly_itemCodeNo09=itemCode; localStorage.foodly_itemQuantityNo09=1;localStorage.foodly_itemPriceNo09=price; toggleCartEvent(); localStorage.foodly_itemSizeNo09=size;}
+ 	else if (localStorage.getItem("foodly_itemNo10") === null) {localStorage.foodly_itemNo10=item; localStorage.foodly_itemCodeNo10=itemCode; localStorage.foodly_itemQuantityNo10=1;localStorage.foodly_itemPriceNo10=price; toggleCartEvent(); localStorage.foodly_itemSizeNo10=size;}
+
+// ----- MAXIMUM REACHED	
+ 	else { localStorage.foodly_itemsCart=Number(localStorage.foodly_itemsCart)-1; 
+ 	alert("You can order max 10 different products at the time!");
+ 	}
+ 	
+ 	document.getElementById("cartQuantity").innerHTML = localStorage.foodly_itemsCart;
+// ----- CALCULATE PRICE
+localStorage.foodly_finalPrice = Number(localStorage.foodly_itemQuantityNo01*localStorage.foodly_itemPriceNo01+localStorage.foodly_itemQuantityNo02*localStorage.foodly_itemPriceNo02+localStorage.foodly_itemQuantityNo03*localStorage.foodly_itemPriceNo03+localStorage.foodly_itemQuantityNo04*localStorage.foodly_itemPriceNo04+localStorage.foodly_itemQuantityNo05*localStorage.foodly_itemPriceNo05+localStorage.foodly_itemQuantityNo06*localStorage.foodly_itemPriceNo06+localStorage.foodly_itemQuantityNo07*localStorage.foodly_itemPriceNo07+localStorage.foodly_itemQuantityNo08*localStorage.foodly_itemPriceNo08+localStorage.foodly_itemQuantityNo09*localStorage.foodly_itemPriceNo09+localStorage.foodly_itemQuantityNo10*localStorage.foodly_itemPriceNo10);
+document.getElementById("total_price").innerHTML= localStorage.foodly_finalPrice;				
+}
+
+else { alert("Your browser does not support web storage. Please make sure to use the recommended browser!")}
+}
+function clearStorage(){localStorage.clear(); document.getElementById("cartQuantity").innerHTML = 0;
+	localStorage.foodly_itemQuantityNo01="0"; localStorage.foodly_itemPriceNo01="0";	
+	localStorage.foodly_itemQuantityNo02="0"; localStorage.foodly_itemPriceNo02="0";	
+	localStorage.foodly_itemQuantityNo03="0"; localStorage.foodly_itemPriceNo03="0";	
+	localStorage.foodly_itemQuantityNo04="0"; localStorage.foodly_itemPriceNo04="0";	
+	localStorage.foodly_itemQuantityNo05="0"; localStorage.foodly_itemPriceNo05="0";
+	localStorage.foodly_itemQuantityNo06="0"; localStorage.foodly_itemPriceNo06="0";	
+	localStorage.foodly_itemQuantityNo07="0"; localStorage.foodly_itemPriceNo07="0";	
+	localStorage.foodly_itemQuantityNo08="0"; localStorage.foodly_itemPriceNo08="0";	
+	localStorage.foodly_itemQuantityNo09="0"; localStorage.foodly_itemPriceNo09="0";	
+	localStorage.foodly_itemQuantityNo10="0"; localStorage.foodly_itemPriceNo10="0";
+}
+</script>
+</head>
+<body>
+
+<table id="main_layout">
+<tr><td colspan="100" id="main_banner_bng"><a href="../index.html"><img id="main_banner" src="../Resources/foodly_banner.png"></img></a></td></tr>
+<tr class="main_menu">
+<td><a href="../index.html">Home</a></td>
+<td><a onclick="orderFoodClicked()">Order Food</a></td>
+<td><a href="../aboutUs.html">About us</a></td>
+<td><a href="../ContactUs.html">Contact us</a></td>
+<td><a href="../myCart.html">My Cart (<span id="cartQuantity">0</span>)</a></td>
+</tr>
+<tr>
+<td colspan="100" class="main_content"> <!-- sadrzaj stranice -->
+<br/>
+
+<div id="helpMeOrder">
+<span class="helpMeOrderTitle"><h2><center>Restaurant: mojRestoran</center></h2>
+Hello, stranger! Click here if you need help with ordering!</span>
+<div class="description">
+Click on the icons of the food you would like to order. You can make a custom pizza in the Foodly editor and
+You can review your order by clicking on "My cart" button in the main menu.
+</div>
+</div>
+
+<table id="restaurantTable"><tr>
+<td id="restaurantTable_menu"><div class="pomicni_dio">
+<div class="itemMenu">
+<b>Total price: </b><span id="total_price">0</span> kn<br/><br/>
+<b>Select product size:</b>
+<select id="sizeSelect"><option>Small</option><option selected="selected">Medium</option><option>Large</option><option>Jumbo</option></select>
+<br/><br/>
+<b>Your Cart</b>
+<br/>
+<button onclick='javascript: window.location.href = "../myCart.html"'>Check products in your cart</button>
+<br/><br/>
+<b>Reset</b>
+<button onclick='javascript: window.location.href = "../orderFood.html"'>Reset restaurant and cart</button>
+<br/><br/>Select size and click on the products to add them to the cart.
+</div>
+<div class="itemAdded specialFont_normal"><br/>Item has been added to your cart!<br/><br/></div>
+</div>
+</td>
+
+<td colspan="50" id="restaurant_products">
+
+<fieldset class="productCategory">
+<legend><span class="specialFont_large">Pizza</span></legend>
+<a href="./sloziPizzu/sloziPizzu.html" target="_blank">
+<div class="product_card">
+<div>CUSTOM PIZZA</div>
+<div><img src="./Resources/custom.png"/></div>
+<span class="product_card_price">Price: <b>varies</b></span>
+</div></a>
+
+<div class="product_card" onclick='clickBuy("Margharita", "345","28.50",localStorage.foodly_itemSize)' onmouseover="productHover(this)" onmouseout="productHover(this)">
+<div>MARGHERITA</div>
+<div><img src="./Resources/margherita.png"/></div>
+<div class="product_card_description"><br/><b>Toppings:</b><br/>Tomato<br/>Cheese, Oregano</div>
+<span class="product_card_price">Price: <b>28.50 kn</b></span>
+</div>
+
+<div class="product_card" onclick='clickBuy("Vesuvio", "567","30.00",localStorage.foodly_itemSize)' onmouseover="productHover(this)" onmouseout="productHover(this)">
+<div>VESUVIO</div>
+<div><img src="./Resources/vesuvio.png"/></div>
+<div class="product_card_description"><br/><b>Toppings:</b><br/>Tomato, Cheese, Ham, Oregano</div>
+<span class="product_card_price">Price: <b>30.00 kn</b></span>
+</div>
+
+
+<div class="product_card" onclick='clickBuy("Capricciosa", "678","35.00",localStorage.foodly_itemSize)' onmouseover="productHover(this)" onmouseout="productHover(this)">
+<div>CAPRICCIOSA</div>
+<div><img src="./Resources/capricciosa.png"/></div>
+<div class="product_card_description"><br/><b>Toppings:</b><br/>Tomato, Cheese, Ham, Mushrooms,Oregano</div>
+<span class="product_card_price">Price: <b>35 kn</b></span>
+</div>
+
+<div class="product_card" onclick='clickBuy("Slavonska", "543","36.50",localStorage.foodly_itemSize)' onmouseover="productHover(this)" onmouseout="productHover(this)">
+<div>SLAVONSKA</div>
+<div><img src="./Resources/slavonian.png"/></div>
+<div class="product_card_description"><br/><b>Toppings:</b><br/>Tomato, Cheese, Ham, Sausage, Mushrooms, Hot peppers, Bacon, Onion, Oregano</div>
+<span class="product_card_price">Price: <b>36.50 kn</b></span>
+</div>
+
+<div class="product_card" onclick='clickBuy("Al Tonno", "169","38.50",localStorage.foodly_itemSize)' onmouseover="productHover(this)" onmouseout="productHover(this)">
+<div>AL TONNO</div>
+<div><img src="./Resources/al_tonno.png"/></div>
+<div class="product_card_description"><br/><b>Toppings:</b><br/>Tomato, Cheese, Tuna, Onion, Olives, Oregano</div>
+<span class="product_card_price">Price: <b>38.50 kn</b></span>
+</div>
+
+<div class="product_card" onclick='clickBuy("Quatro Formagi", "739","37.00",localStorage.foodly_itemSize)' onmouseover="productHover(this)" onmouseout="productHover(this)">
+<div>QUATRO FORMAGI</div>
+<div><img src="./Resources/quatro.png"/></div>
+<div class="product_card_description"><br/><b>Toppings:</b><br/>Tomato, Gouda, Mozzarela, Gorgonzola, Parmesan, Oregano</div>
+<span class="product_card_price">Price: <b>37.00 kn</b></span>
+</div>
+
+<div class="product_card" onclick='clickBuy("Vegetariana", "849","36.50",localStorage.foodly_itemSize)' onmouseover="productHover(this)" onmouseout="productHover(this)">
+<div>VEGETARIANA</div>
+<div><img src="./Resources/vegetariana.png"/></div>
+<div class="product_card_description"><br/><b>Toppings:</b><br/>Tomato, Cheese, Mushrooms, Salad, Oregano</div>
+<span class="product_card_price">Price: <b>36.50 kn</b></span>
+</div>
+</fieldset><br/>
+
+<fieldset class="productCategory">
+<legend><span class="specialFont_large">Burgers</span></legend>
+<a href="./sloziHamburger/sloziHamburger.html" target="_blank">
+<div class="product_card">
+<div>CUSTOM BURGER</div>
+<div><img src="./Resources/custom_burger.png"/></div>
+<span class="product_card_price">Price: <b>varies</b></span>
+</div></a>
+
+<div class="product_card" onclick='clickBuy("Standard Burger", "831","8.50",localStorage.foodly_itemSize)' onmouseover="productHover(this)" onmouseout="productHover(this)">
+<div>STANDARD</div>
+<div><img src="./Resources/standard.png"/></div>
+<div class="product_card_description"><br/><b>Toppings:</b><br/>Beef, Salad, Tomato</div>
+<span class="product_card_price">Price: <b>8.50 kn</b></span>
+</div>
+
+<div class="product_card" onclick='clickBuy("Cheeseburger", "831","10.00",localStorage.foodly_itemSize)' onmouseover="productHover(this)" onmouseout="productHover(this)">
+<div>CHEESEBURGER</div>
+<div><img src="./Resources/cheeseburger.png"/></div>
+<div class="product_card_description"><br/><b>Toppings:</b><br/>Beef, Cheese, Salad, Tomato</div>
+<span class="product_card_price">Price: <b>10.00 kn</b></span>
+</div>
+
+<div class="product_card" onclick='clickBuy("Vegeburger Cheese", "831","9.50",localStorage.foodly_itemSize)' onmouseover="productHover(this)" onmouseout="productHover(this)">
+<div>VEGEBURGER CHEESE</div>
+<div><img src="./Resources/vegecheeseburger.png"/></div>
+<div class="product_card_description"><br/><b>Toppings:</b><br/>Vegetarian patty, Salad, Tomato</div>
+<span class="product_card_price">Price: <b>9.50 kn</b></span>
+</div>
+
+<div class="product_card" onclick='clickBuy("Vegeburger Standard", "831","8.00",localStorage.foodly_itemSize)' onmouseover="productHover(this)" onmouseout="productHover(this)">
+<div>VEGEBURGER</div>
+<div><img src="./Resources/vegeburger.png"/></div>
+<div class="product_card_description"><br/><b>Toppings:</b><br/>Vegetarian patty, Salad, Tomato</div>
+<span class="product_card_price">Price: <b>8.00 kn</b></span>
+</div>
+</fieldset>
+
+<fieldset class="productCategory">
+<legend><span class="specialFont_large">Side Dishes</span></legend>
+
+<div class="product_card" onclick='clickBuy("French Fries", "7631","7.50",localStorage.foodly_itemSize)' onmouseover="productHover(this)" onmouseout="productHover(this)">
+<div>FRENCH FRIES</div>
+<div><img src="./Resources/fries.png"/></div>
+<div class="product_card_description"><br/><b>Sastojci:</b><br/>Potato, Salt</div>
+<span class="product_card_price">Price: <b>7.50 kn</b></span>
+</div>
+
+<div class="product_card" onclick='clickBuy("Salad", "7121","6.50",localStorage.foodly_itemSize)' onmouseover="productHover(this)" onmouseout="productHover(this)">
+<div>SALAD</div>
+<div><img src="./Resources/salad.png"/></div>
+<div class="product_card_description"><br/><b>Sastojci:</b><br/>Salad, Tomato, Onion, Cucumber</div>
+<span class="product_card_price">Price: <b>6.50 kn</b></span>
+</div>
+</fieldset>
+
+</td></tr></table>
+
+
+
+<!-- <button onclick='clearStorage()' type="button">Clear storage</button> -->
+<br/><br/>
+
+</td></tr>
+<tr><td class="social_media" colspan="100">
+&nbsp;&nbsp;&nbsp;
+<br/>
+</td></tr>
+
+
+</table>
+</body>
+</html>

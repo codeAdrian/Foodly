@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<link rel="shortcut icon" href="./Resursi/pizzaIcon.ico"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Foodly - Food Editor</title>
+<link rel="stylesheet" type="text/css" href="mojaPizzadesign.css"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="sloziPizzuJfile.js"></script>
+<script src="provjera.js" type="text/javascript"></script>
+<script>$(document).ready(function() {localStorage.foodly_itemSize="Medium";$("#velicina_pizze_select").change(function() {localStorage.foodly_itemSize=$("#velicina_pizze_select option:selected").text();});});</script>
+</head>
+<!-- <body oncontextmenu="return false"> onemoguci desni klik -->
+<body>
+<div id="skriveno"></div>
+<div id="introScreen">
+<img src="./Resursi/intro_banner1.png"/><br>
+<img src="./Resursi/sloziPizzu_intro.gif"/><br>
+<img src="./Resursi/intro_banner2.png"/></div>
+<form onsubmit="return check()" action='javascript:addItemClicked()'>
+<table id="glavnaTablica" cellspacing="0">
+<tr>
+<td id="pizzaMenu">
+<table id="izbornik" cellspacing="5px">
+
+<tr><td><button id="b_prilozi" name="b_prilozi" type="button"></button></td>
+
+<tr><td id="prilozi">
+<input type="checkbox" value="pljeskavica" name ="pljeskavica" id="cbx_pljeskavica"/>Pljeskavica<br/>
+<input type="checkbox" value="vege" name ="vege" id="cbx_vege"/>Vege pljeskavica<br/>
+<input type="checkbox" value="jaje" name ="jaje" id="cbx_jaje"/>Jaje<br/>
+<input type="checkbox" value="krastavci" name ="krastavci" id="cbx_krastavci"/>Krastavci<br/>
+<input type="checkbox" value="luk" name ="luk" id="cbx_luk"/>Luk<br/>
+<input type="checkbox" value="rajcica" name ="rajcica" id="cbx_rajcica"/>Rajčica<br/>
+<input type="checkbox" value="salata" name ="salata" id="cbx_salata"/>Salata<br/>
+<!-- ---------------------- INSERT NEW TOPPING ---------------------------------  -->
+<input type="checkbox" value="sir" name ="sir" id="cbx_sir"/>Sir<br/>
+<!-- ---------------------------------------------------------------------------  -->
+
+<hr>
+</td></tr>
+</tr>
+</table>
+</td>
+<td id="sadrzaj"><div class="pomicni_dio">
+<div id="slozi_slike">
+<div id="pizza_slike"><img id="baza" src="./resursi/hamburger_baza.png"/></div>
+
+<div id="pizza_slike"><div class="pljeskavica pljeskavica_slike"><img src="./resursi/hamburger_pljeskavica.png"/></div></div>
+<div id="pizza_slike"><div class="vege vege_slike"><img src="./resursi/hamburger_vege.png"/></div></div>
+<div id="pizza_slike"><div class="sir sir_slike"><img src="./resursi/hamburger_sir.png"/></div></div>
+<div id="pizza_slike"><div class="salata salata_slike"><img src="./resursi/hamburger_salata.png"/></div></div>
+<div id="pizza_slike"><div class="jaje jaje_slike"><img src="./resursi/hamburger_jaje.png"/></div></div>
+<div id="pizza_slike"><div class="luk luk_slike"><img src="./resursi/hamburger_luk.png"/></div></div>
+<div id="pizza_slike"><div class="rajcica rajcica_slike"><img src="./resursi/hamburger_rajcica.png"/></div></div>
+<div id="pizza_slike"><div class="krastavci krastavci_slike"><img src="./resursi/hamburger_krastavci.png"/></div></div>
+
+</div><hr/>
+<span id="broj"><input id="dekr" type="button" title="dekrement" value="-"/>
+&nbsp;<b>Broj:</b> <input type="text" class="cijena_broj" name="broj_pizza" value="1" size="1" readonly="readonly"/>
+<input type="button" id="inkr" title="inkrement" value="+"/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span id="cijenaFont broj"><b>Veličina:</b> <select id="velicina_pizze_select" name="velicinaPizze" size="1"><option value="small">Small</option><option selected="selected" value="medium">Medium</option><option value="large">Large</option></select></span>
+<hr/>
+<div id="cijenaFont broj"><center><b>Za platiti:</b> <input type="text" class="cijena_broj" name="zaPlatiti" value="0 kn" style="width:120px" readonly="readonly"/>
+<input id="addPizza" type="submit" value="Add this item to the cart"/></center>
+</div>
+<hr/>
+<p id="maliFont">(c)<b> Adrian Bece 2014.-2015.</b></p></div></td>
+<td id="upute"><div class="pomicni_dio2"><img src="./Resursi/desni_banner.png"></img></div></td></tr></table></body></html>

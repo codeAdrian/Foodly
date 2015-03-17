@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<link rel="stylesheet" type="text/css" href="./main_design.css"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="foodly_js.js"></script>
+
+<script>
+$(document).ready(function() {
+localStorage.clear(); document.getElementById("cartQuantity").innerHTML = 0;
+	localStorage.foodly_itemQuantityNo01="0"; localStorage.foodly_itemPriceNo01="0";	
+	localStorage.foodly_itemQuantityNo02="0"; localStorage.foodly_itemPriceNo02="0";	
+	localStorage.foodly_itemQuantityNo03="0"; localStorage.foodly_itemPriceNo03="0";	
+	localStorage.foodly_itemQuantityNo04="0"; localStorage.foodly_itemPriceNo04="0";	
+	localStorage.foodly_itemQuantityNo05="0"; localStorage.foodly_itemPriceNo05="0";
+	localStorage.foodly_itemQuantityNo06="0"; localStorage.foodly_itemPriceNo06="0";	
+	localStorage.foodly_itemQuantityNo07="0"; localStorage.foodly_itemPriceNo07="0";	
+	localStorage.foodly_itemQuantityNo08="0"; localStorage.foodly_itemPriceNo08="0";	
+	localStorage.foodly_itemQuantityNo09="0"; localStorage.foodly_itemPriceNo09="0";	
+	localStorage.foodly_itemQuantityNo10="0"; localStorage.foodly_itemPriceNo10="0";
+	localStorage.foodly_itemSize="Medium";
+	});
+
+$(function() {
+if (localStorage.getItem("foodly_itemsCart") === null){document.getElementById("cartQuantity").innerHTML="0";}
+else {document.getElementById("cartQuantity").innerHTML = localStorage.foodly_itemsCart;}
+if (window.localStorage.length==0)
+	{
+	localStorage.foodly_itemQuantityNo01="0"; localStorage.foodly_itemPriceNo01="0";	
+	localStorage.foodly_itemQuantityNo02="0"; localStorage.foodly_itemPriceNo02="0";	
+	localStorage.foodly_itemQuantityNo03="0"; localStorage.foodly_itemPriceNo03="0";	
+	localStorage.foodly_itemQuantityNo04="0"; localStorage.foodly_itemPriceNo04="0";	
+	localStorage.foodly_itemQuantityNo05="0"; localStorage.foodly_itemPriceNo05="0";
+	localStorage.foodly_itemQuantityNo06="0"; localStorage.foodly_itemPriceNo06="0";	
+	localStorage.foodly_itemQuantityNo07="0"; localStorage.foodly_itemPriceNo07="0";	
+	localStorage.foodly_itemQuantityNo08="0"; localStorage.foodly_itemPriceNo08="0";	
+	localStorage.foodly_itemQuantityNo09="0"; localStorage.foodly_itemPriceNo09="0";	
+	localStorage.foodly_itemQuantityNo10="0"; localStorage.foodly_itemPriceNo10="0";
+	localStorage.foodly_itemSize="Medium";}
+});
+</script>
+
+<title>Foodly - customize order enjoy</title>
+</head>
+
+<body>
+<table id="main_layout">
+<tr><td colspan="100" id="main_banner_bng"><a href="./index.html"><img id="main_banner" src="./Resources/foodly_banner.png"></img></a></td></tr>
+<tr class="main_menu">
+<td><a href="./index.html">Home</a></td>
+<td><a href="./orderFood.html">Order Food</a></td>
+<td><a href="./aboutUs.html">About us</a></td>
+<td><a href="./ContactUs.html">Contact us</a></td>
+<td><a href="./myCart.html">My Cart (<span id="cartQuantity">0</span>)</a></td>
+</tr>
+<tr>
+<td colspan="100" class="main_content"> <!-- sadrzaj stranice -->
+<br/>
+
+<div id="helpMeOrder">
+<span><h2>Order Food</h2>
+Hello, stranger! Click here if you need help with ordering!</span>
+<div class="description">
+Order your food in 4 simple steps!<br/>
+<b>STEP 1: </b>Select your country <br/>
+<b>STEP 2: </b>Select your city <br/>
+<b>STEP 3: </b>Select a restaurant you want to order from <br/>
+<b>STEP 4: </b>Order online - customize your order, fill out the form and order
+</div></div>
+
+<div>
+<fieldset id="countries_list">
+<legend class="specialFont_normal">Select your country</legend>
+<input type="radio" name="countries" id="country_croatia">Croatia</input><br/>
+<input type="radio" name="countries" id="country_country2">Country 2</input><br/>
+<input type="radio" name="countries" id="country_country3">Country 3</input><br/>
+<input type="radio" name="countries" id="country_country4">Country 4</input><br/>
+</fieldset>
+</div>
+
+<div>
+<fieldset  class="group_country" id="city_group_croatia">
+<legend class="specialFont_normal">Select your city</legend>
+<input type="radio" name="cities" id="city_bjelovar">Bjelovar</input><br/>
+<input type="radio" name="cities" id="city_djakovo">Đakovo</input><br/>
+<input type="radio" name="cities" id="city_nasice">Našice</input><br/>
+<input type="radio" name="cities" id="city_osijek">Osijek</input><br/>
+<input type="radio" name="cities" id="city_pozega">Požega</input><br/>
+<input type="radio" name="cities" id="city_pula">Pula</input><br/>
+<input type="radio" name="cities" id="city_split">Split</input><br/>
+<input type="radio" name="cities" id="city_varazdin">Varaždin</input><br/>
+<input type="radio" name="cities" id="city_vinkovci">Vinkovci</input><br/>
+<input type="radio" name="cities" id="city_rijeka">Rijeka</input><br/>
+<input type="radio" name="cities" id="city_zagreb">Zagreb</input>
+</fieldset>
+</div>
+
+<div>
+<fieldset  class="group_country" id="city_group_country2">
+<legend class="specialFont_normal">Select your city</legend>
+<input type="radio" name="cities" id="city_city1">City 1</input><br/>
+<input type="radio" name="cities" id="city_city2">City 2</input><br/>
+<input type="radio" name="cities" id="city_city3">City 3</input><br/>
+<input type="radio" name="cities" id="city_city4">City 4</input><br/>
+<input type="radio" name="cities" id="city_city5">City 5</input><br/>
+<input type="radio" name="cities" id="city_city6">City 6</input><br/>
+<input type="radio" name="cities" id="city_city7">City 7</input><br/>
+<input type="radio" name="cities" id="city_city8">City 8</input><br/>
+</fieldset>
+</div>
+
+
+<div>
+<fieldset  class="restaurant_cards">
+<legend class="specialFont_normal">Select a restaurant from which you want to order from</legend>
+<div id="group_osijek" class="city_restaurants">
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+
+</div>
+
+<div id="group_zagreb" class="city_restaurants">
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+</div>
+
+
+<div id="group_city1" class="city_restaurants">
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+</div>
+
+<div id="group_city2" class="city_restaurants">
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+<a href="./mojRestoran/mojRestoran.html"><img src="./Resources/card_pizza.png"></img></a>
+</div>
+</fieldset>
+</div>
+
+<p>&nbsp;&nbsp;&nbsp;</p>
+<br/><br/>
+</td></tr>
+<tr><td class="social_media" colspan="100">
+&nbsp;&nbsp;&nbsp;
+<br/>
+</td></tr>
+
+
+</table></body></html>

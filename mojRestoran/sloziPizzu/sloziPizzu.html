@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<link rel="shortcut icon" href="./Resursi/pizzaIcon.ico"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Foodly - Food Editor</title>
+<link rel="stylesheet" type="text/css" href="mojaPizzadesign.css"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="sloziPizzuJfile.js"></script>
+<script src="provjera.js" type="text/javascript"></script>
+<script>$(document).ready(function() {localStorage.foodly_itemSize="Medium";$("#velicina_pizze_select").change(function() {localStorage.foodly_itemSize=$("#velicina_pizze_select option:selected").text();});});</script>
+</head>
+<!-- <body oncontextmenu="return false"> onemoguci desni klik -->
+<body>
+<div id="skriveno"></div>
+<div id="introScreen">
+<img src="./Resursi/intro_banner1.png"/><br>
+<img src="./Resursi/sloziPizzu_intro.gif"/><br>
+<img src="./Resursi/intro_banner2.png"/></div>
+<form onsubmit="return check()" action='javascript:addItemClicked()'>
+<table id="glavnaTablica" cellspacing="0">
+<tr>
+<td id="pizzaMenu">
+<table id="izbornik" cellspacing="5px">
+<tr><td><button id="b_tijesto" name="b_tijesto" type="button"></button></td></tr>
+<tr><td id="tijesto">
+<input type="checkbox" name="cbx_korica_t" id ="cbx_korica_t" value="korica_t"/><img src="./resursi/label_korica_t.png"/><br>
+<input type="checkbox" name="cbx_rub"  id ="cbx_rub"  value="rub"/><img src="./resursi/label_rub.png"/><br>
+<hr>
+<input type="radio" name="cbx_peceno" id ="cbx_peceno_vise" value="vise_peceno"/><img src="./resursi/label_vise_peceno.png"/><br>
+<input type="radio" name="cbx_peceno" id ="cbx_peceno_normalno" value="normalno_peceno" checked="checked"/><img src="./resursi/label_normalno_peceno.png"/><br>
+<input type="radio" name="cbx_peceno" id ="cbx_peceno_manje" value="manje_peceno"/><img src="./resursi/label_manje_peceno.png"/>
+<hr>
+</td></tr>
+
+<tr><td><button id="b_prilozi" name="b_prilozi" type="button"></button></td>
+
+<tr><td id="prilozi">
+<input type="checkbox" value="rajcica" name ="cbx_rajcica" id="radio_rajcica"/><img src="./resursi/label_rajcica.png"/><br>
+
+<input type="checkbox" name ="cbx_sunka" value="sunka"/><img src="./resursi/label_sunka.png"/><br>
+<div class="sunka_grupa btn_grupa">
+<input type="radio" name="sunka" value="sunka_l" id="radio_sunka_l"/> &nbsp;
+<input type="radio" name="sunka" value="sunka" id="radio_sunka"/>  &nbsp;
+<input type="radio" name="sunka" value="sunka_d" id="radio_sunka_d"/></div>
+
+<input type="checkbox" name ="cbx_kulen" value="kulen"/><img src="./resursi/label_kulen.png"/><br>
+
+<div class="kulen_grupa btn_grupa">
+<input type="radio" name="kulen" value="kulen_l" id="radio_kulen_l"/> &nbsp;
+<input type="radio" name="kulen" value="kulen" id="radio_kulen"/>  &nbsp;
+<input type="radio" name="kulen" value="kulen_d" id="radio_kulen_d"/></div>
+
+<input type="checkbox" name ="cbx_tuna" value="tuna"/><img src="./resursi/label_tuna.png"/><br>
+<div class="tuna_grupa btn_grupa">
+<input type="radio" name="tuna" value="tuna_l" id="radio_tuna_l"/> &nbsp;
+<input type="radio" name="tuna" value="tuna" id="radio_tuna"/>  &nbsp;
+<input type="radio" name="tuna" value="tuna_d" id="radio_tuna_d"/></div>
+
+<input type="checkbox" name ="cbx_luk" value="luk"/><img src="./resursi/label_luk.png"/><br>
+<div class="luk_grupa btn_grupa">
+<input type="radio" name="luk" value="luk_l" id="radio_luk_l"/> &nbsp;
+<input type="radio" name="luk" value="luk" id="radio_luk"/>  &nbsp;
+<input type="radio" name="luk" value="luk_d" id="radio_luk_d"/></div>
+
+<input type="checkbox" name ="cbx_gljive" value="gljive"/><img src="./resursi/label_gljive.png"/><br>
+<div class="gljive_grupa btn_grupa">
+<input type="radio" name="gljive" value="gljive_l" id="radio_gljive_l"/> &nbsp;
+<input type="radio" name="gljive" value="gljive" id="radio_gljive"/>  &nbsp;
+<input type="radio" name="gljive" value="gljive_d" id="radio_gljive_d"/></div>
+
+<input type="checkbox" name ="cbx_sir" value="sir"/><img src="./resursi/label_sir.png"/><br>
+<div class="sir_grupa btn_grupa">
+<input type="radio" name="sir" value="sir_l" id="radio_sir_l"/> &nbsp;
+<input type="radio" name="sir" value="sir"id="radio_sir"/>  &nbsp;
+<input type="radio" name="sir" value="sir_d"id="radio_sir_d"/></div>
+
+<input type="checkbox" name ="cbx_sir4" value="sir4"/><img src="./resursi/label_sir4.png"/><br>
+<div class="sir4_grupa btn_grupa">
+<input type="radio" name="sir4" value="sir4_l" id="radio_sir4_l"/> &nbsp;
+<input type="radio" name="sir4" value="sir4"id="radio_sir4"/>  &nbsp;
+<input type="radio" name="sir4" value="sir4_d"id="radio_sir4_d"/></div>
+
+<!-- ---------------------- INSERT NEW TOPPING ---------------------------------  -->
+<input type="checkbox" name ="cbx_salata" value="salata"/><img src="./resursi/label_salata.png"/><br>
+<div class="salata_grupa btn_grupa">
+<input type="radio" name="salata" value="salata_l" id="radio_salata_l"/> &nbsp;
+<input type="radio" name="salata" value="salata" id="radio_salata"/>  &nbsp;
+<input type="radio" name="salata" value="salata_d" id="radio_salata_d"/></div>
+<!-- ---------------------------------------------------------------------------  -->
+
+<input type="checkbox" name ="cbx_paprika" value="paprika"/><img src="./resursi/label_paprika.png"/><br>
+<div class="paprika_grupa btn_grupa">
+<input type="radio" name="paprika" value="paprika_l" id="radio_paprika_l"/> &nbsp;
+<input type="radio" name="paprika" value="paprika" id="radio_paprika"/>  &nbsp;
+<input type="radio" name="paprika" value="paprika_d" id="radio_paprika_d"/></div>
+
+
+<input type="checkbox" name ="cbx_kukuruz" value="kukuruz"/><img src="./resursi/label_kukuruz.png"/><br>
+<div class="kukuruz_grupa btn_grupa">
+<input type="radio" name="kukuruz" value="kukuruz_l" id="radio_kukuruz_l"/> &nbsp;
+<input type="radio" name="kukuruz" value="kukuruz" id="radio_kukuruz"/>  &nbsp;
+<input type="radio" name="kukuruz" value="kukuruz_d" id="radio_kukuruz_d"/></div>
+
+<input type="checkbox" name ="cbx_masline" value="masline"/><img src="./resursi/label_masline.png"/><br>
+<div class="masline_grupa btn_grupa">
+<input type="radio" name="masline" value="masline_l" id="radio_masline_l"/> &nbsp;
+<input type="radio" name="masline" value="masline" id="radio_masline"/>  &nbsp;
+<input type="radio" name="masline" value="masline_d" id="radio_masline_d"/></div>
+<hr>
+</td></tr>
+</tr>
+</table>
+</td>
+<td id="sadrzaj"><div class="pomicni_dio">
+<div id="slozi_slike">
+<div id="pizza_slike"><img id="baza" src="./resursi/pizza_baza.png"/></div>
+
+<div id="pizza_slike"><div class="rajcica rajcica_slike"><img src="./resursi/pizza_rajcica.png"/></div></div>
+
+<div id="pizza_slike"><div class="sir_l sir_slike"><img src="./resursi/pizza_sir_l.png"/></div></div>
+<div id="pizza_slike"><div class="sir_d sir_slike"><img src="./resursi/pizza_sir_d.png"/></div></div>
+<div id="pizza_slike"><div class="sir sir_slike"><img src="./resursi/pizza_sir.png"/></div></div>
+
+<div id="pizza_slike"><div class="sir4_l sir4_slike"><img src="./resursi/pizza_sir4_l.png"/></div></div>
+<div id="pizza_slike"><div class="sir4_d sir4_slike"><img src="./resursi/pizza_sir4_d.png"/></div></div>
+<div id="pizza_slike"><div class="sir4 sir4_slike"><img src="./resursi/pizza_sir4.png"/></div></div>
+
+<div id="pizza_slike"><div class="tuna_l tuna_slike"><img src="./resursi/pizza_tuna_l.png"/></div></div>
+<div id="pizza_slike"><div class="tuna_d tuna_slike"><img src="./resursi/pizza_tuna_d.png"/></div></div>
+<div id="pizza_slike"><div class="tuna tuna_slike"><img src="./resursi/pizza_tuna.png"/></div></div>
+
+<div id="pizza_slike"><div class="sunka_l sunka_slike"><img src="./resursi/pizza_sunka_l.png"/></div></div>
+<div id="pizza_slike"><div class="sunka_d sunka_slike"><img src="./resursi/pizza_sunka_d.png"/></div></div>
+<div id="pizza_slike"><div class="sunka sunka_slike"><img src="./resursi/pizza_sunka.png"/></div></div>
+
+<!-- ---------------------- INSERT NEW TOPPING ---------------------------------  -->
+<div id="pizza_slike"><div class="salata_l salata_slike"><img src="./resursi/pizza_salata_l.png"/></div></div>
+<div id="pizza_slike"><div class="salata_d salata_slike"><img src="./resursi/pizza_salata_d.png"/></div></div>
+<div id="pizza_slike"><div class="salata salata_slike"><img src="./resursi/pizza_salata.png"/></div></div>
+<!-- ---------------------------------------------------------------------------  -->
+
+
+<div id="pizza_slike"><div class="kulen_l kulen_slike"><img src="./resursi/pizza_kulen_l.png"/></div></div>
+<div id="pizza_slike"><div class="kulen_d kulen_slike"><img src="./resursi/pizza_kulen_d.png"/></div></div>
+<div id="pizza_slike"><div class="kulen kulen_slike"><img src="./resursi/pizza_kulen.png"/></div></div>
+
+<div id="pizza_slike"><div class="gljive_l gljive_slike"><img src="./resursi/pizza_gljive_l.png"/></div></div>
+<div id="pizza_slike"><div class="gljive_d gljive_slike"><img src="./resursi/pizza_gljive_d.png"/></div></div>
+<div id="pizza_slike"><div class="gljive gljive_slike"><img src="./resursi/pizza_gljive.png"/></div></div>
+
+<div id="pizza_slike"><div class="paprika_l paprika_slike"><img src="./resursi/pizza_paprika_l.png"/></div></div>
+<div id="pizza_slike"><div class="paprika_d paprika_slike"><img src="./resursi/pizza_paprika_d.png"/></div></div>
+<div id="pizza_slike"><div class="paprika paprika_slike"><img src="./resursi/pizza_paprika.png"/></div></div>
+
+<div id="pizza_slike"><div class="masline_l masline_slike"><img src="./resursi/pizza_masline_l.png"/></div></div>
+<div id="pizza_slike"><div class="masline_d masline_slike"><img src="./resursi/pizza_masline_d.png"/></div></div>
+<div id="pizza_slike"><div class="masline masline_slike"><img src="./resursi/pizza_masline.png"/></div></div>
+
+<div id="pizza_slike"><div class="kukuruz_l kukuruz_slike"><img src="./resursi/pizza_kukuruz_l.png"/></div></div>
+<div id="pizza_slike"><div class="kukuruz_d kukuruz_slike"><img src="./resursi/pizza_kukuruz_d.png"/></div></div>
+<div id="pizza_slike"><div class="kukuruz kukuruz_slike"><img src="./resursi/pizza_kukuruz.png"/></div></div>
+
+<div id="pizza_slike"><div class="luk_l luk_slike"><img src="./resursi/pizza_luk_l.png"/></div></div>
+<div id="pizza_slike"><div class="luk_d luk_slike"><img src="./resursi/pizza_luk_d.png"/></div></div>
+<div id="pizza_slike"><div class="luk luk_slike"><img src="./resursi/pizza_luk.png"/></div></div>
+</div><hr/>
+<span id="broj"><input id="dekr" type="button" title="dekrement" value="-"/>
+&nbsp;<b>Broj:</b> <input type="text" class="cijena_broj" name="broj_pizza" value="1" size="1" readonly="readonly"/>
+<input type="button" id="inkr" title="inkrement" value="+"/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span id="cijenaFont broj"><b>Veličina:</b> <select id="velicina_pizze_select" name="velicinaPizze" size="1"><option value="small">Small</option><option selected="selected" value="medium">Medium</option><option value="large">Large</option><option value="jumbo">Jumbo</option></select></span>
+<hr/>
+<div id="cijenaFont broj"><b>Za platiti:</b> <input type="text" class="cijena_broj" name="zaPlatiti" value="0 kn" style="width:120px" readonly="readonly"/></div>
+<input id="addPizza" type="submit" value="Add this Pizza to the cart"/>
+<hr/>
+<p id="maliFont">(c)<b> Adrian Bece 2014.-2015.</b></p></div></td>
+<td id="upute"><div class="pomicni_dio2"><img src="./Resursi/desni_banner.png"></img></div></td></tr></table></body></html>

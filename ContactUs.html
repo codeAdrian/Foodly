@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<link rel="stylesheet" type="text/css" href="./main_design.css"/>
+<link rel="stylesheet" type="text/css" href="./slick/slick.css"/>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="./slick/slick.min.js"></script>
+<script type="text/javascript" src="news_slick.js"></script>
+
+<title>Foodly - customize order enjoy</title>
+<script>
+$(function() {
+if (localStorage.getItem("foodly_itemsCart") === null){document.getElementById("cartQuantity").innerHTML="0";}
+else {document.getElementById("cartQuantity").innerHTML = localStorage.foodly_itemsCart;}
+if (window.localStorage.length==0)
+	{
+	localStorage.foodly_itemQuantityNo01="0"; localStorage.foodly_itemPriceNo01="0";	
+	localStorage.foodly_itemQuantityNo02="0"; localStorage.foodly_itemPriceNo02="0";	
+	localStorage.foodly_itemQuantityNo03="0"; localStorage.foodly_itemPriceNo03="0";	
+	localStorage.foodly_itemQuantityNo04="0"; localStorage.foodly_itemPriceNo04="0";	
+	localStorage.foodly_itemQuantityNo05="0"; localStorage.foodly_itemPriceNo05="0";	
+	}
+});
+</script>
+</head>
+
+<body>
+<table id="main_layout">
+<tr><td colspan="100" id="main_banner_bng"><a href="./index.html"><img id="main_banner" src="./Resources/foodly_banner.png"></img></a></td></tr>
+<tr class="main_menu">
+<td><a href="./index.html">Home</a></td>
+<td><a href="./orderFood.html">Order Food</a></td>
+<td><a href="./aboutUs.html">About us</a></td>
+<td><a href="./ContactUs.html">Contact us</a></td>
+<td><a href="./myCart.html">My Cart (<span id="cartQuantity">0</span>)</a></td>
+</tr>
+<tr>
+<td colspan="100" class="main_content"> <!-- sadrzaj stranice -->
+<br/>
+   
+   <center><img src="./Resources/placeholder.png"/></center>
+   <br/><br/>
+
+</td></tr>
+<tr><td class="social_media" colspan="100">
+&nbsp;&nbsp;&nbsp;
+<br/>
+</td></tr>
+
+
+</table></body></html>

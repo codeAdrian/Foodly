@@ -1,0 +1,361 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css" href="./main_design.css"/>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="foodly_js.js"></script>
+<script src="checkFinalForm.js"></script>
+<title>Foodly - customize order enjoy</title>
+
+<script>
+function orderFoodClicked()
+{
+if (localStorage.getItem("restaurantURL")!==null) window.location.href = localStorage.restaurantURL;
+else window.location.href = './orderFood.html';
+}
+
+function goBack() 
+{if (localStorage.getItem("restaurantURL")!==null) window.location.href = localStorage.restaurantURL;
+else window.location.href = './orderFood.html';
+}
+
+$(function() {
+if (localStorage.getItem("foodlyRestaurant") !== null) document.getElementById("cartRestaurant").value = localStorage.foodlyRestaurant;
+
+if (localStorage.getItem("foodly_itemsCart") === null){localStorage.foodly_itemsCart= "0";}
+document.getElementById("cartQuantity").innerHTML= localStorage.foodly_itemsCart;
+
+if (localStorage.getItem("foodly_itemNo01") !== null){
+document.getElementById("itemNo01").value = localStorage.foodly_itemNo01;
+document.getElementById("itemCodeNo01").value = localStorage.foodly_itemCodeNo01;
+document.getElementById("itemQuantityNo01").value= localStorage.foodly_itemQuantityNo01;
+document.getElementById("itemPriceNo01").value = localStorage.foodly_itemPriceNo01;
+document.getElementById("itemSizeNo01").value = localStorage.foodly_itemSizeNo01;
+}
+
+if (localStorage.getItem("foodly_itemNo02") !== null){
+document.getElementById("itemNo02").value = localStorage.foodly_itemNo02;
+document.getElementById("itemCodeNo02").value = localStorage.foodly_itemCodeNo02;
+document.getElementById("itemQuantityNo02").value = localStorage.foodly_itemQuantityNo02;
+document.getElementById("itemPriceNo02").value = localStorage.foodly_itemPriceNo02;
+document.getElementById("itemSizeNo02").value = localStorage.foodly_itemSizeNo02;
+
+}
+
+if (localStorage.getItem("foodly_itemNo03") !== null){
+document.getElementById("itemNo03").value = localStorage.foodly_itemNo03;
+document.getElementById("itemCodeNo03").value = localStorage.foodly_itemCodeNo03;
+document.getElementById("itemQuantityNo03").value = localStorage.foodly_itemQuantityNo03;
+document.getElementById("itemPriceNo03").value = localStorage.foodly_itemPriceNo03;
+document.getElementById("itemSizeNo03").value = localStorage.foodly_itemSizeNo03;
+}
+
+
+if (localStorage.getItem("foodly_itemNo04") !== null){
+document.getElementById("itemNo04").value = localStorage.foodly_itemNo04;
+document.getElementById("itemCodeNo04").value = localStorage.foodly_itemCodeNo04;
+document.getElementById("itemQuantityNo04").value = localStorage.foodly_itemQuantityNo04;
+document.getElementById("itemPriceNo04").value= localStorage.foodly_itemPriceNo04;
+document.getElementById("itemSizeNo04").value = localStorage.foodly_itemSizeNo04;
+}
+
+if (localStorage.getItem("foodly_itemNo05") !== null){
+document.getElementById("itemNo05").value = localStorage.foodly_itemNo05;
+document.getElementById("itemCodeNo05").value = localStorage.foodly_itemCodeNo05;
+document.getElementById("itemQuantityNo05").value = localStorage.foodly_itemQuantityNo05;
+document.getElementById("itemPriceNo05").value = localStorage.foodly_itemPriceNo05;
+document.getElementById("itemSizeNo05").value = localStorage.foodly_itemSizeNo05;
+}
+
+if (localStorage.getItem("foodly_itemNo06") !== null){
+document.getElementById("itemNo06").value = localStorage.foodly_itemNo06;
+document.getElementById("itemCodeNo06").value = localStorage.foodly_itemCodeNo06;
+document.getElementById("itemQuantityNo06").value = localStorage.foodly_itemQuantityNo06;
+document.getElementById("itemPriceNo06").value = localStorage.foodly_itemPriceNo06;
+document.getElementById("itemSizeNo06").value = localStorage.foodly_itemSizeNo06;
+}
+
+if (localStorage.getItem("foodly_itemNo07") !== null){
+document.getElementById("itemNo07").value = localStorage.foodly_itemNo07;
+document.getElementById("itemCodeNo07").value = localStorage.foodly_itemCodeNo07;
+document.getElementById("itemQuantityNo07").value = localStorage.foodly_itemQuantityNo07;
+document.getElementById("itemPriceNo07").value = localStorage.foodly_itemPriceNo07;
+document.getElementById("itemSizeNo07").value = localStorage.foodly_itemSizeNo07;
+}
+
+if (localStorage.getItem("foodly_itemNo08") !== null){
+document.getElementById("itemNo08").value = localStorage.foodly_itemNo08;
+document.getElementById("itemCodeNo08").value = localStorage.foodly_itemCodeNo08;
+document.getElementById("itemQuantityNo08").value = localStorage.foodly_itemQuantityNo08;
+document.getElementById("itemPriceNo08").value = localStorage.foodly_itemPriceNo08;
+document.getElementById("itemSizeNo08").value = localStorage.foodly_itemSizeNo08;
+}
+
+if (localStorage.getItem("foodly_itemNo09") !== null){
+document.getElementById("itemNo09").value = localStorage.foodly_itemNo09;
+document.getElementById("itemCodeNo09").value = localStorage.foodly_itemCodeNo09;
+document.getElementById("itemQuantityNo09").value = localStorage.foodly_itemQuantityNo09;
+document.getElementById("itemPriceNo09").value = localStorage.foodly_itemPriceNo09;
+document.getElementById("itemSizeNo09").value = localStorage.foodly_itemSizeNo09;
+}
+
+if (localStorage.getItem("foodly_itemNo10") !== null){
+document.getElementById("itemNo10").value = localStorage.foodly_itemNo10;
+document.getElementById("itemCodeNo10").value = localStorage.foodly_itemCodeNo10;
+document.getElementById("itemQuantityNo10").value = localStorage.foodly_itemQuantityNo10;
+document.getElementById("itemPriceNo10").value = localStorage.foodly_itemPriceNo10;
+document.getElementById("itemSizeNo10").value = localStorage.foodly_itemSizeNo10;
+}
+
+localStorage.foodly_finalPrice = Number(localStorage.foodly_itemQuantityNo01*localStorage.foodly_itemPriceNo01+localStorage.foodly_itemQuantityNo02*localStorage.foodly_itemPriceNo02+localStorage.foodly_itemQuantityNo03*localStorage.foodly_itemPriceNo03+localStorage.foodly_itemQuantityNo04*localStorage.foodly_itemPriceNo04+localStorage.foodly_itemQuantityNo05*localStorage.foodly_itemPriceNo05+localStorage.foodly_itemQuantityNo06*localStorage.foodly_itemPriceNo06+localStorage.foodly_itemQuantityNo07*localStorage.foodly_itemPriceNo07+localStorage.foodly_itemQuantityNo08*localStorage.foodly_itemPriceNo08+localStorage.foodly_itemQuantityNo09*localStorage.foodly_itemPriceNo09+localStorage.foodly_itemQuantityNo10*localStorage.foodly_itemPriceNo10);
+document.getElementById("CartFinalPrice").innerHTML = localStorage.foodly_finalPrice;
+});
+
+function clearOrder(num)
+{
+	if (num===1){
+		localStorage.foodly_itemsCart=Number(localStorage.foodly_itemsCart-localStorage.foodly_itemQuantityNo01);
+		document.getElementById("itemNo01").value = "";
+		document.getElementById("itemCodeNo01").value = "";
+		document.getElementById("itemQuantityNo01").value = "";
+		document.getElementById("itemPriceNo01").value = "";
+		localStorage.removeItem("foodly_itemNo01"); localStorage.removeItem("itemCodeNo01");
+		localStorage.foodly_itemQuantityNo01="0";localStorage.foodly_itemPriceNo01="0";
+		document.getElementById("itemSizeNo01").value = "";localStorage.removeItem("itemSizeNo01");
+	}
+	
+		if (num===2){
+		localStorage.foodly_itemsCart=Number(localStorage.foodly_itemsCart-localStorage.foodly_itemQuantityNo02);
+		document.getElementById("itemNo02").value = "";
+		document.getElementById("itemCodeNo02").value = "";
+		document.getElementById("itemQuantityNo02").value = "";
+		document.getElementById("itemPriceNo02").value = "";
+		localStorage.removeItem("foodly_itemNo02"); localStorage.removeItem("itemCodeNo02");
+		localStorage.foodly_itemQuantityNo02="0";localStorage.foodly_itemPriceNo02="0";
+		document.getElementById("itemSizeNo02").value = "";localStorage.removeItem("itemSizeNo02");
+	}
+	
+		if (num===3){
+		localStorage.foodly_itemsCart=Number(localStorage.foodly_itemsCart-localStorage.foodly_itemQuantityNo03);
+		document.getElementById("itemNo03").value = "";
+		document.getElementById("itemCodeNo03").value = "";
+		document.getElementById("itemQuantityNo03").value = "";
+		document.getElementById("itemPriceNo03").value = "";
+		localStorage.removeItem("foodly_itemNo03"); localStorage.removeItem("itemCodeNo03");
+		localStorage.foodly_itemQuantityNo03="0";localStorage.foodly_itemPriceNo03="0";
+		document.getElementById("itemSizeNo03").value = "";localStorage.removeItem("itemSizeNo03");
+
+	}
+
+		if (num===4){
+		localStorage.foodly_itemsCart=Number(localStorage.foodly_itemsCart-localStorage.foodly_itemQuantityNo04);
+		document.getElementById("itemNo04").value = "";
+		document.getElementById("itemCodeNo04").value = "";
+		document.getElementById("itemQuantityNo04").value = "";
+		document.getElementById("itemPriceNo04").value = "";
+		localStorage.removeItem("foodly_itemNo04"); localStorage.removeItem("itemCodeNo04");
+		localStorage.foodly_itemQuantityNo04="0";localStorage.foodly_itemPriceNo04="0";
+		document.getElementById("itemSizeNo04").value = "";localStorage.removeItem("itemSizeNo04");
+	}
+
+		if (num===5){
+		localStorage.foodly_itemsCart=Number(localStorage.foodly_itemsCart-localStorage.foodly_itemQuantityNo05);
+		document.getElementById("itemNo05").value = "";
+		document.getElementById("itemCodeNo05").value = "";
+		document.getElementById("itemQuantityNo05").value = "";
+		document.getElementById("itemPriceNo05").value = "";
+		localStorage.removeItem("foodly_itemNo05"); localStorage.removeItem("itemCodeNo05");
+		localStorage.foodly_itemQuantityNo05="0";localStorage.foodly_itemPriceNo05="0";
+		document.getElementById("itemSizeNo05").value = "";localStorage.removeItem("itemSizeNo05");
+	}
+	
+		if (num===6){
+		localStorage.foodly_itemsCart=Number(localStorage.foodly_itemsCart-localStorage.foodly_itemQuantityNo06);
+		document.getElementById("itemNo06").value = "";
+		document.getElementById("itemCodeNo06").value = "";
+		document.getElementById("itemQuantityNo06").value = "";
+		document.getElementById("itemPriceNo06").value = "";
+		localStorage.removeItem("foodly_itemNo06"); localStorage.removeItem("itemCodeNo06");
+		localStorage.foodly_itemQuantityNo06="0";localStorage.foodly_itemPriceNo06="0";
+		document.getElementById("itemSizeNo06").value = "";localStorage.removeItem("itemSizeNo06");
+	}
+	
+		if (num===7){
+		localStorage.foodly_itemsCart=Number(localStorage.foodly_itemsCart-localStorage.foodly_itemQuantityNo07);
+		document.getElementById("itemNo07").value= "";
+		document.getElementById("itemCodeNo07").value = "";
+		document.getElementById("itemQuantityNo07").value = "";
+		document.getElementById("itemPriceNo07").value = "";
+		localStorage.removeItem("foodly_itemNo07"); localStorage.removeItem("itemCodeNo07");
+		localStorage.foodly_itemQuantityNo07="0";localStorage.foodly_itemPriceNo07="0";
+		document.getElementById("itemSizeNo07").value = "";localStorage.removeItem("itemSizeNo07");
+	}
+
+		if (num===8){
+		localStorage.foodly_itemsCart=Number(localStorage.foodly_itemsCart-localStorage.foodly_itemQuantityNo08);
+		document.getElementById("itemNo08").value = "";
+		document.getElementById("itemCodeNo08").value = "";
+		document.getElementById("itemQuantityNo08").value = "";
+		document.getElementById("itemPriceNo08").value = "";
+		localStorage.removeItem("foodly_itemNo08"); localStorage.removeItem("itemCodeNo08");
+		localStorage.foodly_itemQuantityNo08="0";localStorage.foodly_itemPriceNo08="0";
+		document.getElementById("itemSizeNo08").value = "";localStorage.removeItem("itemSizeNo08");
+	}
+
+		if (num===9){
+		localStorage.foodly_itemsCart=Number(localStorage.foodly_itemsCart-localStorage.foodly_itemQuantityNo09);
+		document.getElementById("itemNo09").value = "";
+		document.getElementById("itemCodeNo09").value = "";
+		document.getElementById("itemQuantityNo09").value = "";
+		document.getElementById("itemPriceNo09").value = "";
+		localStorage.removeItem("foodly_itemNo09"); localStorage.removeItem("itemCodeNo09");
+		localStorage.foodly_itemQuantityNo09="0";localStorage.foodly_itemPriceNo09="0";
+		document.getElementById("itemSizeNo09").value = "";localStorage.removeItem("itemSizeNo09");
+	}
+
+		if (num===10){
+		localStorage.foodly_itemsCart=Number(localStorage.foodly_itemsCart-localStorage.foodly_itemQuantityNo10);
+		document.getElementById("itemNo10").value = "";
+		document.getElementById("itemCodeNo10").value = "";
+		document.getElementById("itemQuantityNo10").value = "";
+		document.getElementById("itemPriceNo10").value = "";
+		localStorage.removeItem("foodly_itemNo10"); localStorage.removeItem("itemCodeNo10");
+		localStorage.foodly_itemQuantityNo10="0";localStorage.foodly_itemPriceNo10="0";
+		document.getElementById("itemSizeNo10").value = "";localStorage.removeItem("itemSizeNo10");
+	}
+
+document.getElementById("cartQuantity").innerHTML = localStorage.foodly_itemsCart;
+localStorage.foodly_finalPrice = Number(localStorage.foodly_itemQuantityNo01*localStorage.foodly_itemPriceNo01+localStorage.foodly_itemQuantityNo02*localStorage.foodly_itemPriceNo02+localStorage.foodly_itemQuantityNo03*localStorage.foodly_itemPriceNo03+localStorage.foodly_itemQuantityNo04*localStorage.foodly_itemPriceNo04+localStorage.foodly_itemQuantityNo05*localStorage.foodly_itemPriceNo05+localStorage.foodly_itemQuantityNo06*localStorage.foodly_itemPriceNo06+localStorage.foodly_itemQuantityNo07*localStorage.foodly_itemPriceNo07+localStorage.foodly_itemQuantityNo08*localStorage.foodly_itemPriceNo08+localStorage.foodly_itemQuantityNo09*localStorage.foodly_itemPriceNo09+localStorage.foodly_itemQuantityNo10*localStorage.foodly_itemPriceNo10);
+document.getElementById("CartFinalPrice").innerHTML = localStorage.foodly_finalPrice;
+}
+</script>
+
+</head>
+<body>
+
+<table id="main_layout">
+<tr><td colspan="100" id="main_banner_bng"><a href="./index.html"><img id="main_banner" src="./Resources/foodly_banner.png"></img></a></td></tr>
+<tr class="main_menu">
+<td><a href="./index.html">Home</a></td>
+<td><a onclick="orderFoodClicked()">Order Food</a></td>
+<td><a href="./aboutUs.html">About us</a></td>
+<td><a href="./ContactUs.html">Contact us</a></td>
+<td><a href="./myCart.html">My Cart (<span id="cartQuantity">0</span>)</a></td>
+</tr>
+<tr>
+<td colspan="100" class="main_content"> <!-- sadrzaj stranice -->
+<br/>
+
+<div id="helpMeOrder">
+<span><h2>My cart</h2>
+Hello, stranger! Click here if you need help with ordering!</span>
+<div class="description">
+Here you can check your order and price. You can remove any items that you don't want to order.
+To finish ordering, fill out the form and wait for the delivery. If you've selected a restaurant, you can
+continue shopping in a selected restaurant by clicking on an appropriate button below or you can reset your current cart
+and choose another restaurant by clicking on the appropriate button below.
+</div></div>
+
+<fieldset id="cart_items">
+<legend><span class="specialFont_normal2">Your cart</span></legend>
+<form onsubmit="return checkFinalForm()" action="./submitOrder.php" method="POST">
+<span class="specialFont_normal">Restaurant: <input type="text" readonly="readonly" class="invisibleTextbox" name="cartRestaurant" id="cartRestaurant" size="30"/></span>
+<br/><br/><table id="cart_table">
+<tr><td class="cart_row_long"><b>Item</b></td><td class="cart_row_long"><b>ID</b></td><td class="cart_row_medium"><b>Quantity</b></td><td class="cart_row_medium"><b>Price</b></td><td class="cart_row_medium"><b>Size</b></td><td><b>Remove</b></td></tr>
+<tr><td><input type="text" name="itemNo01"  id="itemNo01" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemCodeNo01" id="itemCodeNo01" class="invisibleTextbox"  size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemQuantityNo01" id="itemQuantityNo01" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemPriceNo01" id="itemPriceNo01" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemSizeNo01" id="itemSizeNo01" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><button onclick='clearOrder(1)' type="button">Remove this item</button></td></tr>
+
+<tr><td><input type="text" name="itemNo02" id="itemNo02" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemCodeNo02" id="itemCodeNo02" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemQuantityNo02" id="itemQuantityNo02" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemPriceNo02" id="itemPriceNo02" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemSizeNo02" id="itemSizeNo02" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><button onclick='clearOrder(2)' type="button">Remove this item</button></td></tr>
+
+<tr><td><input type="text" name="itemNo03" id="itemNo03" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemCodeNo03" id="itemCodeNo03" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemQuantityNo03" id="itemQuantityNo03" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemPriceNo03" id="itemPriceNo03" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemSizeNo03" id="itemSizeNo03" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><button onclick='clearOrder(3)' type="button">Remove this item</button></td></tr>
+
+<tr><td><input type="text" name="itemNo04" id="itemNo04" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemCodeNo04" id="itemCodeNo04" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemQuantityNo04" id="itemQuantityNo04" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemPriceNo04" id="itemPriceNo04" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemSizeNo04" id="itemSizeNo04"  class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><button onclick='clearOrder(4)' type="button">Remove this item</button></td></tr>
+
+<tr><td><input type="text" name="itemNo05" id="itemNo05" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemCodeNo05" id="itemCodeNo05" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemQuantityNo05" id="itemQuantityNo05" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemPriceNo05" id="itemPriceNo05" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemSizeNo05" id="itemSizeNo05" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><button onclick='clearOrder(5)' type="button">Remove this item</button></td></tr>
+
+<tr><td><input type="text" name="itemNo06" id="itemNo06" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemCodeNo06" id="itemCodeNo06" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemQuantityNo06" id="itemQuantityNo06" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemPriceNo06" id="itemPriceNo06" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemSizeNo06" id="itemSizeNo06" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><button onclick='clearOrder(6)' type="button">Remove this item</button></td></tr>
+
+<tr><td><input type="text" name="itemNo07" id="itemNo07" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemCodeNo07" id="itemCodeNo07" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemQuantityNo07" id="itemQuantityNo07" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemPriceNo07" id="itemPriceNo07" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemSizeNo07" id="itemSizeNo07" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><button onclick='clearOrder(7)' type="button">Remove this item</button></td></tr>
+
+<tr><td><input type="text" name="itemNo08" id="itemNo08" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemCodeNo08" id="itemCodeNo08" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemQuantityNo08" id="itemQuantityNo08" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemPriceNo08" id="itemPriceNo08" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemSizeNo08" id="itemSizeNo08" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><button onclick='clearOrder(8)' type="button">Remove this item</button></td></tr>
+
+<tr><td><input type="text" name="itemNo09" id="itemNo09" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemCodeNo09" id="itemCodeNo09" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemQuantityNo09" id="itemQuantityNo09" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemPriceNo09" id="itemPriceNo09" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemSizeNo09" id="itemSizeNo09" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><button onclick='clearOrder(9)' type="button">Remove this item</button></td></tr>
+
+<tr><td><input type="text" name="itemNo10" id="itemNo10" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemCodeNo10" id="itemCodeNo10" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemQuantityNo10" id="itemQuantityNo10" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemPriceNo10" id="itemPriceNo10" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><input type="text" name="itemSizeNo10" id="itemSizeNo10" class="invisibleTextbox" size="15" readonly="readonly"/></td>
+<td><button onclick='clearOrder(10)' type="button">Remove this item</button></td></tr>
+
+<tr><td colspan="3"><b>Final price:</b></td><td colspan="2" id="CartFinalPrice"></td></tr>
+</table>
+<br/>
+</fieldset>
+<fieldset id="customer_form">
+<legend><span class="specialFont_normal2">Order form</span></legend>
+<b>First name</b><br/><input type="text" name ="Firstname" id="FirstName" size="20" placeholder="John"/><br/><br/>
+<b>Last name</b><br/><input type="text" name="LastName" id="LastName" size="20" placeholder="Doe"/><br/><br/>
+<b>Delivery address</b><br/><input name="DeliveryAddress" id="DeliveryAddress" type="text" size="50"/><br/><br/>
+<b>Phone number</b> <br/><input name="PhoneNumber" id="PhoneNumber" type="text" size="20"/><br/><br/>
+<input type="reset" id="BackButton" value="Reset Form"/>
+<input type="submit" id="BackButton" value="Save and order"/>
+</form>
+</fieldset>
+<br/><br/><br/><br/>
+
+</td></tr>
+<tr><td class="social_media" colspan="100">
+&nbsp;&nbsp;&nbsp;
+<br/>
+</td></tr>
+
+
+</table>
+</body>
+</html>

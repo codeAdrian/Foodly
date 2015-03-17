@@ -1,0 +1,268 @@
+﻿#pizzaMenu 
+{
+	background-color:orange;
+	height:640px;
+	vertical-align:top;
+	width:200px;
+	padding-right:20px;
+	border-right:5px #fdd961 solid;
+	}
+
+#introScreen
+{
+ 	display: inline-block;
+ 	background-color:orange;	
+	height:450px;
+	width:600px;
+	position: absolute;
+ 	left: 50%;
+  	margin-left: -300px;
+  	margin-top:6%;
+  	z-index:99;
+  	text-align:center;
+}
+
+body
+{
+z-index:1;
+background: url("./resursi/bgr.png") repeat scroll 0 0;
+padding-right:180px;
+padding-left:0px;
+font-family:Arial, Helvetica, sans-serif;
+font-size:small;
+margin: 0px 0px 0px 0px;
+overflow-y:scroll;
+}
+
+#upute
+{
+	background:orange;
+	width:300px;
+	vertical-align:top;
+	border-left:5px #fdd961 solid;
+}
+
+#izbornik
+{
+	width:200px;
+	vertical-align:top;
+	text-align:left;
+	margin-left:5px;
+	margin-top:10px;
+}
+
+#prilozi,#tijesto
+{
+	text-align:left;
+	padding-left:20px;
+	padding-right:10px;
+}
+
+#b_tijesto
+{
+background: url("./resursi/b_tijesto.png") no-repeat scroll 0 0 transparent;
+width:250px;
+height:50px;
+border:medium #865c37 outset;
+}
+
+
+#b_prilozi
+{
+background: url("./resursi/b_prilozi.png") no-repeat scroll 0 0 transparent;
+width:250px;
+height:50px;
+border:3px #865c37 outset;
+}
+
+#b_ostalo
+{
+background: url("./resursi/b_ostalo.png") no-repeat scroll 0 0 transparent;
+width:250px;
+height:50px;
+border:medium #865c37 outset;
+}
+
+
+#glavnaTablica
+{
+	display:none;
+	width:100%;
+	margin: 0px 100px 0px 100px;
+	text-align:center;
+}
+
+#poravnavanje_forme
+{
+	text-align:left;
+	vertical-align:top;
+}
+
+#poravnavanje_forme td
+{
+padding:0px;
+text-align:left;
+margin:0;
+}
+
+#pizza_slike
+{
+position:relative;
+top:30px;
+left:0px;
+
+}
+
+#sadrzaj
+{
+vertical-align:top;
+background-color:orange;
+padding-left:20px;
+padding-right:20px;
+}
+
+#slozi_slike
+{
+   padding: 0;
+   width: 500px;
+   height: 440px;
+}
+
+/* ------------------------- INSERT NEW TOPPING ------------------------------ */
+.kulen_slike, .luk_slike, .gljive_slike, .sir_slike, .sunka_slike, .masline_slike, .rajcica_slike, .kukuruz_slike, .salata_slike,.sir4_slike,.tuna_slike,.paprika_slike
+{
+        display: none;
+        position:absolute;
+        top:-391px;
+        left:51px;
+}
+/* --------------------------------------------------------------------------- */
+
+.btn_grupa
+{
+	text-align:left;
+	padding-left:40px;
+	vertical-align:top;
+	display:none;
+}
+
+ input[type=radio] {
+    border: 0px;
+    width: 20px;
+    height: 20px;
+    
+}
+
+
+ input[type=checkbox] {
+    border: 0px;
+    width: 20px;
+    height:20px;
+    vertical-align:super;
+    padding:0;
+}
+
+
+#broj
+{
+	font-size:medium;
+	text-align:center;
+}
+
+#broj input
+{
+	width:30px;
+	height:30px;
+	font-size:large;
+}
+
+#addPizza
+{
+	font-size:large;
+}
+
+#maliFont
+{
+font-family:Arial, Helvetica, sans-serif;
+font-size:small;
+}
+
+#cijenaFont
+{
+font-family:Arial, Helvetica, sans-serif;
+font-size:small;
+}
+
+
+#popis
+{
+	background-color:orange;
+	height:100%;
+	width:100%;
+	border:medium black solid;
+	text-align:right;
+}
+
+textarea{resize:none;}
+
+#inkr, #dekr, #velicina_pizze_select
+{
+	background-color:#fdd961;
+	border:medium #865c37 inset;
+	padding:0;
+	margin:0;
+}
+
+input,textarea
+{
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+hr
+{
+	background-color:#fdd961;
+	height:2px;
+}
+
+.pomicni_dio
+{
+ 	display: block;
+	text-align:center;
+ 	margin-left: auto;
+  	margin-right: auto;
+  	width:500px;
+}
+  
+#velicina_pizze_select
+{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:medium;
+}
+
+#skriveno
+{
+	display:none;
+	z-index:0;	
+}
+
+.cijena_broj
+{
+	background-color:orange;	
+	color:#865c37;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	margin:0px;
+	padding:0px;
+	overflow:visible;
+	border:0px;
+	text-align:center;
+}
+
+input#addPizza
+{
+	width:60%;
+	background-color: #fdd961;
+	border: medium #865c37 inset;
+	padding: 0;
+	margin: 0;
+}
